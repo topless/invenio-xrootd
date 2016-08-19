@@ -63,14 +63,14 @@ configuration variable ``XROOTD_CHECKSUM_ALGO``:
    # config.py
    XROOTD_CHECKSUM_ALGO = 'md5'
 
-Keberos authentication
-~~~~~~~~~~~~~~~~~~~~~~
-If your XRootD server requires Keberos authentication (e.g. CERN EOS), then you
-can run a tool such as
+Kerberos authentication
+~~~~~~~~~~~~~~~~~~~~~~~
+If your XRootD server requires Kerberos authentication (e.g. CERN EOS), then
+you can run a tool such as
 `k5start <https://www.eyrie.org/~eagle/software/kstart/k5start.html>`_ on each
-client node in order to obtain a keberos ticket and continue keeping the ticket
-valid. The XRootD python bindings will transparently use this keberos ticket
-to authenticate against your server.
+client node in order to obtain a Kerberos ticket and continue keeping the
+ticket valid. The XRootD python bindings will transparently use this Kerberos
+ticket to authenticate against your server.
 """
 
 from __future__ import absolute_import, print_function
