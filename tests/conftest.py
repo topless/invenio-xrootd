@@ -115,6 +115,12 @@ def xrd_storage(file_url):
 
 
 @pytest.fixture
+def xrd_storage_ospath(file_path):
+    """Storage instance for XRootDFileStorage with OS path."""
+    return XRootDFileStorage(file_path)
+
+
+@pytest.fixture
 def xrd_storage_mocked(file_url, file_md5):
     """Patch xrd_checksum."""
     # Since local xrootd server can't compute checksums.

@@ -54,12 +54,20 @@ class XRootDFileStorage(PyFSFileStorage):
             'XROOTD_CHECKSUM_ALGO') if current_app else None
         super(XRootDFileStorage, self).__init__(*args, **kwargs)
 
-    def _get_fs(self, create_dir=True):
+    def _get_fs(self, create_dir=True, query=None):
         """Get PyFilesystem instance and path."""
+        # Fall-back to PyFS in case of non-xrootd URL
+        if not self.fileurl.startswith(('root://', 'roots://')):
+            return super(XRootDFileStorage, self)._get_fs(
+                create_dir=create_dir)
         filedir = dirname(self.fileurl)
         filename = basename(self.fileurl)
 
-        fs = XRootDPyFS(filedir)
+        if query is None:
+            fs = XRootDPyFS(filedir)
+        else:
+            fs = XRootDPyFS(filedir, query)
+
         if create_dir:
             fs.makedir('', recursive=True, allow_recreate=True)
 
@@ -130,18 +138,12 @@ class EOSFileStorage(XRootDFileStorage):
 
     def _get_fs(self, create_dir=True):
         """Get PyFilesystem instance and path."""
-        filedir = dirname(self.fileurl)
-        filename = basename(self.fileurl)
-
         query = {}
         if self.bookingsize:
             query['eos.bookingsize'] = self.bookingsize
 
-        fs = XRootDPyFS(filedir, query)
-        if create_dir:
-            fs.makedir('', recursive=True, allow_recreate=True)
-
-        return (fs, filename)
+        return super(EOSFileStorage, self)._get_fs(create_dir=create_dir,
+                                                   query=query)
 
     @ensure_bookingsize(with_arg=True)
     def initialize(self, *args, **kwargs):

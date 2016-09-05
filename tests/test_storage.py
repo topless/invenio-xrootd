@@ -87,6 +87,13 @@ def test_get_fs(xrd_storage, file_path, file_url):
     assert exists(file_path)
 
 
+def test_get_fs_ospath(xrd_storage_ospath, file_path):
+    """Test checksum overwrite."""
+    assert not exists(file_path)
+    xrd_storage_ospath.initialize(10)
+    assert exists(file_path)
+
+
 def test_eos_initialize(eos_storage, file_path, file_url):
     """Test checksum overwrite."""
     assert not exists(file_path)
