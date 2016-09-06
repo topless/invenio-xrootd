@@ -47,12 +47,12 @@ class XRootDFileStorage(PyFSFileStorage):
     the alogrithm name reported by the XRootD server.
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, fileurl, **kwargs):
         """Initialize file storage object."""
         # Overwrite reported checksum algorithm.
         self.checksum_algo = current_app.config.get(
             'XROOTD_CHECKSUM_ALGO') if current_app else None
-        super(XRootDFileStorage, self).__init__(*args, **kwargs)
+        super(XRootDFileStorage, self).__init__(fileurl, **kwargs)
 
     def _get_fs(self, create_dir=True, query=None):
         """Get PyFilesystem instance and path."""
@@ -121,10 +121,13 @@ class EOSFileStorage(XRootDFileStorage):
     clients **must** provide the file size upfront.
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, fileurl, default_booking_size=None, **kwargs):
         """Initialize storage."""
         self.bookingsize = None
-        super(EOSFileStorage, self).__init__(*args, **kwargs)
+        self.default_booking_size = default_booking_size or \
+            (current_app.config.get('MAX_CONTENT_LENGTH') if current_app
+             else None)
+        super(EOSFileStorage, self).__init__(fileurl, **kwargs)
 
     def set_bookingsize(self, size):
         """Set EOS booking size.
@@ -132,9 +135,9 @@ class EOSFileStorage(XRootDFileStorage):
         Ensures that EOS will allocate the file to disk server with enough
         available space.
         """
-        if size is None:
+        if size is None and self.default_booking_size is None:
             raise SizeRequiredError()
-        self.bookingsize = size
+        self.bookingsize = size or self.default_booking_size
 
     def _get_fs(self, create_dir=True):
         """Get PyFilesystem instance and path."""

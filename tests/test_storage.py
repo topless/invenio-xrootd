@@ -119,3 +119,14 @@ def test_eos_save(eos_storage, file_path, file_url, BytesIO):
     assert not exists(file_path)
     eos_storage.save(BytesIO(b'test'), size=4)
     assert exists(file_path)
+
+
+def test_eos_default_bookingsize(app, eos_storage, file_path, file_url,
+                                 BytesIO):
+    """Test checksum overwrite."""
+    max_len = app.config['MAX_CONTENT_LENGTH']
+    assert eos_storage.default_booking_size == max_len
+    assert eos_storage.save(BytesIO(b'test'))
+    assert exists(file_path)
+    eos_storage.save(BytesIO(b'a' * (max_len + 1)), size=max_len + 1)
+    assert exists(file_path)

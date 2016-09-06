@@ -57,6 +57,7 @@ def app():
     app = Flask('testapp')
     app.config.update(
         TESTING=True,
+        MAX_CONTENT_LENGTH=10,
         XROOTD_CHECKSUM_ALGO='md5'
     )
     with app.app_context():
