@@ -1,8 +1,8 @@
 =========================
- Invenio-XRootD v1.0.0a2
+ Invenio-XRootD v1.0.0a3
 =========================
 
-Invenio-XRootD v1.0.0a2 was released on September 5, 2016.
+Invenio-XRootD v1.0.0a3 was released on September 6, 2016.
 
 About
 -----
@@ -19,7 +19,7 @@ What's new
 Installation
 ------------
 
-   $ pip install invenio-xrootd==1.0.0a2
+   $ pip install invenio-xrootd==1.0.0a3
 
 Documentation
 -------------
