@@ -8,7 +8,7 @@ Install from PyPI::
 .. note::
 
    Invenio-XRootD is dependent on
-   `XRootDPyFS <http://pythonhosted.org/xrootdpyfs/>`_ and the XRootD Python
+   `XRootDPyFS <http://xrootdpyfs.readthedocs.io/>`_ and the XRootD Python
    bindings which are compatible with Python 2.7 only, and which can be
    somewhat difficult to install. Please consult the XRootDPyFS installation
    guide for further details.

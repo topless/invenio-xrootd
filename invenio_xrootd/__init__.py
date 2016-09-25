@@ -27,7 +27,7 @@ r"""XRootD file storage support for Invenio.
 This modules provide an Invenio file storage interface for XRootD. By default
 Invenio already has support for XRootD via
 `PyFilesytem <http://docs.pyfilesystem.org/en/latest/>`_  and the
-`XRootDPyFS <http://pythonhosted.org/xrootdpyfs/>`_ package. This module
+`XRootDPyFS <http://xrootdpyfs.readthedocs.io/>`_ package. This module
 adds optimization and performance improvements such as efficient checksum
 calculations.
 

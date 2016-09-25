@@ -46,4 +46,4 @@ XRootD file storage support for Invenio.
 *This is an experimental developer preview release.*
 
 * Free software: GPLv2 license
-* Documentation: https://pythonhosted.org/invenio-xrootd/
+* Documentation: https://invenio-xrootd.readthedocs.io/
