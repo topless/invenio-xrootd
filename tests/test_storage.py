@@ -80,6 +80,11 @@ def test_checksum_xrd_overwrite(app, xrd_storage_mocked, file_md5):
     assert xrd_storage_mocked.checksum() == 'md5:{0}'.format(file_md5)
 
 
+def test_checksum_ospath(xrd_storage_ospath, file_md5):
+    """Test checksum overwrite."""
+    assert xrd_storage_ospath.checksum() == 'md5:{0}'.format(file_md5)
+
+
 def test_get_fs(xrd_storage, file_path, file_url):
     """Test checksum overwrite."""
     assert not exists(file_path)

@@ -82,6 +82,8 @@ class XRootDFileStorage(PyFSFileStorage):
         """
         try:
             fs, path = self._get_fs()
+            if not hasattr(fs, 'xrd_checksum'):
+                raise UnsupportedError()
             algo, val = fs.xrd_checksum(path)
             return u'{0}:{1}'.format(self.checksum_algo or algo, val)
         except UnsupportedError:
