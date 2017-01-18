@@ -33,11 +33,13 @@ FROM centos:7
 RUN rpm -Uvh http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 RUN yum install -y \
+    gcc \
+    python-devel \
     xrootd \
     xrootd-client \
     xrootd-client-devel \
     xrootd-python git \
-    xrootd-server
+    xrootd-server \
 
 RUN yum install -y python-pip
 
