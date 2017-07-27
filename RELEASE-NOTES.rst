@@ -1,8 +1,8 @@
 =========================
- Invenio-XRootD v1.0.0a4
+ Invenio-XRootD v1.0.0a5
 =========================
 
-Invenio-XRootD v1.0.0a4 was released on January 18, 2017.
+Invenio-XRootD v1.0.0a5 was released on July 27, 2017.
 
 About
 -----
@@ -19,7 +19,7 @@ What's new
 Installation
 ------------
 
-   $ pip install invenio-xrootd==1.0.0a4
+   $ pip install invenio-xrootd==1.0.0a5
 
 Documentation
 -------------
