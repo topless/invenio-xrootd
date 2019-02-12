@@ -19,6 +19,9 @@
 .. image:: https://img.shields.io/pypi/v/invenio-xrootd.svg
         :target: https://pypi.org/pypi/invenio-xrootd
 
+.. image:: https://img.shields.io/github/license/inveniosoftware/invenio-xrootd.svg
+        :target: https://github.com/inveniosoftware/invenio-xrootd/blob/master/LICENSE
+
 
 XRootD file storage support for Invenio.
 
