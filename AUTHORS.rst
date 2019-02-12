@@ -5,11 +5,11 @@
     Invenio is free software; you can redistribute it and/or modify it
     under the terms of the MIT License; see LICENSE file for more details.
 
+Contributors
+============
 
-
-Authors
-=======
-
-XRootD file storage support for Invenio.
-
-- Lars Holm Nielsen <lars.holm.nielsen@cern.ch>
+- Alexander Ioannidis
+- Jacopo Notarstefano
+- Krzysztof Nowak
+- Lars Holm Nielsen
+- Tibor Simko
