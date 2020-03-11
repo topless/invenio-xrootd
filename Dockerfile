@@ -31,13 +31,13 @@ RUN adduser --uid 1001 xrootduser
 
 # Install some prerequisites ahead of `setup.py` in order to profit
 # from the docker build cache:
-RUN pip install --upgrade pip setuptools twine coveralls requirements-builder
+RUN pip install --upgrade pip "setuptools<45.0" twine coveralls requirements-builder
 RUN pip install \
     check-manifest \
     coverage \
     ipython \
     isort \
-    mock \
+    "mock<4.0" \
     pydocstyle \
     pytest \
     pytest-cache \
