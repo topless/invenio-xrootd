@@ -23,7 +23,7 @@ cache:
 
 install:
   - "docker build -t xrootd ."
-  - "docker run -h xrootdhost -t -u root xrootd pip install -r .travis-${REQUIREMENTS}-requirements.txt"
+  - "docker run -h xrootdhost -t -u root xrootd pip install --use-feature 2020-resolver -r .travis-${REQUIREMENTS}-requirements.txt"
   - "travis_retry pip install coveralls pydocstyle Sphinx twine wheel"
 
 script:
